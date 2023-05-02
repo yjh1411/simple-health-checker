@@ -34,6 +34,11 @@ check_http_status() {
     echo "$status: $url with status $status"
 }
 
+if [ "$HTTP_STATUS_CHECK" == '' ]; then
+    echo "There's nothing to check"
+    exit 5
+fi
+
 readarray -t http_status_check_list <<<"$HTTP_STATUS_CHECK"
 
 for url in "${http_status_check_list[@]}"; do
