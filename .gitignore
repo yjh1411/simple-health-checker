@@ -1,6 +1,7 @@
 # Config files
 config.sh
 HTTP_STATUS_CHECK
+HTTP_RESPONSE_CHECK
 
 # OS generated files
 .DS_Store
