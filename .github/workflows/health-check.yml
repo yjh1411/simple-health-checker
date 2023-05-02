@@ -1,0 +1,18 @@
+name: Health check
+
+on:
+    # FIXME: Please comment this in if you want to use this
+    # schedule:
+    #     - cron: "*/30 * * * *"
+    workflow_dispatch:
+
+jobs:
+    health-check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - run: bash run.sh -M actions
+              env:
+                  DISCORD_WEBHOOK_URI: ${{secrets.DISCORD_WEBHOOK_URI}}
+                  HTTP_STATUS_CHECK: ${{secrets.HTTP_STATUS_CHECK}}
+                  HTTP_RESPONSE_CHECK: ${{secrets.HTTP_RESPONSE_CHECK}}
