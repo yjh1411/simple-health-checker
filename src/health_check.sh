@@ -4,6 +4,11 @@
 
 check_http_status() {
     local url="$1"
+
+    if [ -z "$url" ]; then
+        return 0
+    fi
+
     local status="unknown"
     local color="0"
     local message=""
@@ -45,6 +50,11 @@ check_http_status() {
 
 check_response_contains_text() {
     local url="$1"
+
+    if [ -z "$url" ]; then
+        return 0
+    fi
+
     local target_string="$2"
     local status="unknown"
     local color="0"
