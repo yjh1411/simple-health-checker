@@ -40,7 +40,7 @@ check_http_status() {
         send_discord_notification "$message" "$color" "$url" "$http_status" "$time_taken ms"
     fi
 
-    echo "$status: $url with status $status"
+    echo "$status: $url with status $http_status"
 }
 
 if [ -z "$HTTP_STATUS_CHECK" ]; then
