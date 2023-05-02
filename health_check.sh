@@ -27,7 +27,7 @@ check_http_status() {
         color='3066993'
     fi
 
-    if [ "$status" != 'Succeeded' ]; then
+    if [ "$message" != '' ]; then
         send_discord_notification "$message" "$color" "$url" "$http_status"
     fi
 
