@@ -2,6 +2,8 @@
 
 . src/send_notification.sh
 
+max_timeout="${TIMEOUT:-500}"
+
 check_http_status() {
     local url="$1"
 
@@ -35,7 +37,7 @@ check_http_status() {
     else
         status='Succeeded'
 
-        if (($(bc <<<"$time_taken >= 500"))); then
+        if (($(bc <<<"$time_taken >= $max_timeout"))); then
             message='🐌 Server responded successfully, but it was too slow.'
             color='16761095'
         fi
