@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./send_notification.sh
+. src/send_notification.sh
 
 check_http_status() {
     local url="$1"
