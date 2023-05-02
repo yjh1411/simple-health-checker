@@ -1,0 +1,7 @@
+# Config files
+config.sh
+HTTP_STATUS_CHECK
+
+# OS generated files
+.DS_Store
+.DS_Store?
