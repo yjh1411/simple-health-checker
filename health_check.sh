@@ -4,11 +4,16 @@
 
 check_http_status() {
     local url="$1"
-    local http_status
-    http_status=$(curl -s -o /dev/null -w "%{http_code}" "$url")
     local status="unknown"
     local color="0"
     local message=""
+    local http_response
+    local http_status
+    local time_taken
+
+    http_response=$(curl -s -w "%{http_code} %{time_total}\n" "$url" -o /dev/null)
+    http_status=$(awk '{print $1}' <<<"$http_response")
+    time_taken=$(awk '{printf "%.3f", $2 * 1000}' <<<"$http_response")
 
     if [ "$http_status" -eq 000 ]; then
         status='Failed (URL not found)'
@@ -24,11 +29,15 @@ check_http_status() {
         color='16761095'
     else
         status='Succeeded'
-        color='3066993'
+
+        if (($(bc <<<"$time_taken >= 500"))); then
+            message='🐌 Server responded successfully, but it was too slow.'
+            color='16761095'
+        fi
     fi
 
     if [ "$message" != '' ]; then
-        send_discord_notification "$message" "$color" "$url" "$http_status"
+        send_discord_notification "$message" "$color" "$url" "$http_status" "$time_taken ms"
     fi
 
     echo "$status: $url with status $status"

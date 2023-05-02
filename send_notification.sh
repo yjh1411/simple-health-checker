@@ -5,6 +5,7 @@ send_discord_notification() {
     local color="$2"
     local url="$3"
     local status="$4"
+    local time_taken="$5"
 
     local json_payload
 
@@ -25,6 +26,10 @@ send_discord_notification() {
         {
           "name": "Status Code",
           "value": "$status"
+        },
+        {
+          "name": "Time taken",
+          "value": "$time_taken"
         }
       ],
       "footer": {
