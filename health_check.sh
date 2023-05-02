@@ -36,14 +36,14 @@ check_http_status() {
         fi
     fi
 
-    if [ "$message" != '' ]; then
+    if [ -n "$message" ]; then
         send_discord_notification "$message" "$color" "$url" "$http_status" "$time_taken ms"
     fi
 
     echo "$status: $url with status $status"
 }
 
-if [ "$HTTP_STATUS_CHECK" == '' ]; then
+if [ -z "$HTTP_STATUS_CHECK" ]; then
     echo "There's nothing to check"
     exit 5
 fi
