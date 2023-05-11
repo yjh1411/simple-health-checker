@@ -56,12 +56,19 @@ Example of `HTTP_STATUS_CHECK` file.\
 Add the address to be checked separately by line breaks.
 
 ```txt
-https://example.com foo
-https://marshallku.com bar
+https://example.com RESPONSE_STATUS 200 RESPONSE_INCLUDES FOO RESPONSE_NOT_INCLUDES BAR
+https://example.com RESPONSE_STATUS 404 RESPONSE_INCLUDES FOO
+https://example.com RESPONSE_INCLUDES BAZ
+https://example.com RESPONSE_STATUS 200 RESPONSE_NOT_INCLUDES FIZZ
 ```
 
-Example of `HTTP_RESPONSE_CHECK` file.\
-Add target text to find separately by space.
+Example of `HTTP_RESPONSE_CHECK` file.
+
+| Option                | Description                                                          |
+| --------------------- | -------------------------------------------------------------------- |
+| RESPONSE_STATUS       | The expected HTTP response status code                               |
+| RESPONSE_INCLUDES     | Characters that expected to be included in the response body         |
+| RESPONSE_NOT_INCLUDES | Characters that are NOT expected to be included in the response body |
 
 ### Github actions setting
 
