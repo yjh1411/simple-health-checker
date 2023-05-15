@@ -19,8 +19,6 @@ done
 case "$mode" in
 local)
     . config.sh
-    export HTTP_STATUS_CHECK
-    HTTP_STATUS_CHECK=$(cat HTTP_STATUS_CHECK)
     export HTTP_RESPONSE_CHECK
     HTTP_RESPONSE_CHECK=$(cat HTTP_RESPONSE_CHECK)
     bash src/health_check.sh

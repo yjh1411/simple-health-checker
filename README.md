@@ -30,7 +30,6 @@ bash run.sh [options]
 
 ```md
 -   config.sh
--   HTTP_STATUS_CHECK (optional)
 -   HTTP_RESPONSE_CHECK (optional)
 ```
 
@@ -46,14 +45,6 @@ export TIMEOUT='1500'
 
 Example of `config.sh`.\
 Please notice that `DISCORD_WEBHOOK_URI` is necessary to run this script.
-
-```txt
-https://example.com
-https://marshallku.com
-```
-
-Example of `HTTP_STATUS_CHECK` file.\
-Add the address to be checked separately by line breaks.
 
 ```txt
 https://example.com RESPONSE_STATUS 200 RESPONSE_INCLUDES FOO RESPONSE_NOT_INCLUDES BAR

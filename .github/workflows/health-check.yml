@@ -14,6 +14,5 @@ jobs:
             - run: bash run.sh -M actions
               env:
                   DISCORD_WEBHOOK_URI: ${{secrets.DISCORD_WEBHOOK_URI}}
-                  HTTP_STATUS_CHECK: ${{secrets.HTTP_STATUS_CHECK}}
                   HTTP_RESPONSE_CHECK: ${{secrets.HTTP_RESPONSE_CHECK}}
                   TIMEOUT: ${{secrets.TIMEOUT}}
