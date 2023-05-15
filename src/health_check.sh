@@ -50,7 +50,7 @@ check_http_status() {
     echo "$status: $url with status $http_status"
 }
 
-check_response_contains_text() {
+check_response() {
     local url="$1"
 
     if [ -z "$url" ]; then
@@ -68,6 +68,11 @@ check_response_contains_text() {
     http_status=$(echo "$http_response" | tail -n 1 | awk '{print $1}')
     time_taken=$(echo "$http_response" | tail -n 1 | awk '{printf "%.3f", $2 * 1000}')
     response_body=$(echo "$http_response" | sed '$d')
+
+    if [[ -n $TIMEOUT && $time_taken -gt $TIMEOUT ]]; then
+        message='🐌 Server responded, but it was too slow.'
+        color='16761095'
+    fi
 
     # Shift url
     shift
@@ -142,6 +147,6 @@ if [ -n "$HTTP_RESPONSE_CHECK" ]; then
 
     for line in "${http_response_check_list[@]}"; do
         read -ra splitted <<<"$line"
-        check_response_contains_text "${splitted[@]}"
+        check_response "${splitted[@]}"
     done
 fi
