@@ -21,8 +21,8 @@ check_response() {
     time_taken=$(echo "$http_response" | tail -n 1 | awk '{printf "%.3f", $2 * 1000}')
     response_body=$(echo "$http_response" | sed '$d')
 
-    if [[ -n $TIMEOUT && $time_taken -gt $TIMEOUT ]]; then
-        message='🐌 Server responded, but it was too slow.'
+    if [[ -n $TIMEOUT && $(bc <<<"$time_taken >= $TIMEOUT") -eq 1 ]]; then
+        message='🐌 Server responded successfully, but it was too slow.'
         color='16761095'
     fi
 
