@@ -5,7 +5,7 @@ A simple bash script to check HTTP server.
 1. Checking HTTP server responses with `2xx` status
 2. Checking HTTP server response body includes target string
 
-![Discord webhook result](https://cdn.discordapp.com/attachments/1102888096007196733/1102938780178059265/image.png)
+![Discord webhook result](https://github.com/marshall-ku/assets/assets/72745119/bbe1ed44-b1a4-439d-ad1d-e3bad3f9ed6f)
 
 ## Why I did this
 
