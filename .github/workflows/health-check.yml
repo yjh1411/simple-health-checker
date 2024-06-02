@@ -4,7 +4,7 @@ on:
     # FIXME: Please comment this in if you want to use this
     schedule:
         - cron: "*/1 * * * *"
-    workflow_dispatch:
+    # workflow_dispatch:
 
 jobs:
     health-check:
