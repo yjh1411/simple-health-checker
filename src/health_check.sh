@@ -84,6 +84,7 @@ check_response() {
 
     if [ -n "$message" ]; then
         send_discord_notification "$message" "$color" "$url" "$http_status" "$time_taken ms"
+        send_to_me_custom "$message"
     fi
 
     echo "Succeeded: $url with status $http_status, msg : $message"
