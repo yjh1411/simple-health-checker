@@ -73,8 +73,8 @@ send_to_me_custom() {
      TEMPLATE_ARGS=$(
         cat <<EOF
 {
-  "title" : "$status",
-  "desc" : "$description"
+  "title" : "$status asdf123",
+  "desc" : "$description test123"
 }
 EOF
     )
