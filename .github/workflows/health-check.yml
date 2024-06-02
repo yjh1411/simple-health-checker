@@ -18,4 +18,3 @@ jobs:
                   TIMEOUT: ${{secrets.TIMEOUT}}
                   INPUT_KAKAO_ACCESS_TOKEN: ${{secrets.KAKAO_ACCESS_TOKEN}}
                   INPUT_TEMPLATE_ID: "93112"
-                  INPUT_RECEIVER_UUIDS: ${{}}
