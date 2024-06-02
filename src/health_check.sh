@@ -27,7 +27,7 @@ check_response() {
         echo "time out"
     fi
 
-    if [ -n $http_status && $http_status -eq "404" ]; then
+    if [ $http_status == "404" ]; then
         message="😑 String \`$target_string\` not found in HTTP response"
         color='16007990'
         echo "not found in HTTP response"
