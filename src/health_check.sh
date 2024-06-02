@@ -27,10 +27,10 @@ check_response() {
         echo "time out"
     fi
 
-    if [ $http_status == "404" ]; then
-        message="😑 String \`$target_string\` not found in HTTP response"
+    if [ $http_status != "200" && $http_status != "201" ]; then
+        message="😑 Server responded error!!!"
         color='16007990'
-        echo "not found in HTTP response"
+        echo "server error"
     fi
 
     # Shift url
