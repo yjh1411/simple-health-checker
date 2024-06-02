@@ -55,7 +55,7 @@ send_to_groups_custom() {
         cat <<EOF
 {
   "title" : "$status",
-  "desc" : "$description",
+  "desc" : "$description"
 }
 EOF
     )
@@ -74,7 +74,7 @@ send_to_me_custom() {
         cat <<EOF
 {
   "title" : "$status",
-  "desc" : "$description",
+  "desc" : "$description"
 }
 EOF
     )
