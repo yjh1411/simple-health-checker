@@ -13,6 +13,6 @@ jobs:
             - uses: actions/checkout@v3
             - run: bash run.sh -M actions
               env:
-                  DISCORD_WEBHOOK_URI: https://discord.com/api/webhooks/1246640353918845049/KKt_zyY_NfSgWsSjGIFKKnIoGmRDef4uTdnBKsu2zJ-0H21dKBigzYEVwItONiKMsowu
+                  DISCORD_WEBHOOK_URI: ${{secrets.DISCORD_WEBHOOK_URI}}
                   HTTP_RESPONSE_CHECK: ${{secrets.HTTP_RESPONSE_CHECK}}
                   TIMEOUT: ${{secrets.TIMEOUT}}
