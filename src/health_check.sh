@@ -27,7 +27,7 @@ check_response() {
         echo "time out"
     fi
 
-    if [ $http_status != "200" && $http_status != "201" ]; then
+    if [[ $http_status != "200" && $http_status != "201" ]]; then
         message="😑 Server responded error!!!"
         color='16007990'
         echo "server error"
