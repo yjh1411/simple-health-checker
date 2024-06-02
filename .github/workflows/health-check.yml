@@ -3,8 +3,8 @@ name: Health check
 on:
     # FIXME: Please comment this in if you want to use this
     schedule:
-        - cron: "*/1 * * * *"
-    # workflow_dispatch:
+        - cron: "*/10 * * * *"
+    workflow_dispatch:
 
 jobs:
     health-check:
