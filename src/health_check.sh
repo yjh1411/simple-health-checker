@@ -80,7 +80,7 @@ check_response() {
         send_discord_notification "$message" "$color" "$url" "$http_status" "$time_taken ms"
     fi
 
-    echo "Succeeded: $url with status $http_status"
+    echo "Succeeded: $url with status $http_status, msg : $message"
 }
 
 if [ -z "$HTTP_RESPONSE_CHECK" ]; then
