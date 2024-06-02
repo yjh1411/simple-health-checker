@@ -17,4 +17,4 @@ jobs:
                   HTTP_RESPONSE_CHECK: ${{secrets.HTTP_RESPONSE_CHECK}}
                   TIMEOUT: ${{secrets.TIMEOUT}}
                   INPUT_KAKAO_ACCESS_TOKEN: ${{secrets.KAKAO_ACCESS_TOKEN}}
-                  INPUT_TEMPLATE_ID: "93112"
+                  INPUT_TEMPLATE_ID: "108542"
