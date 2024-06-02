@@ -27,6 +27,12 @@ check_response() {
         echo "time out"
     fi
 
+    if [ -n $http_status && $http_status -eq "404" ]; then
+        message="😑 String \`$target_string\` not found in HTTP response"
+        color='16007990'
+        echo "not found in HTTP response"
+    fi
+
     # Shift url
     shift
 
@@ -39,7 +45,7 @@ check_response() {
             if [ "$expected_status" != "$http_status" ]; then
                 message="🙅 Expected status is $expected_status, but actual status is $http_status"
                 color='16007990'
-                echo "status $http_statu"
+                echo "status $http_status"
                 break
             fi
 
