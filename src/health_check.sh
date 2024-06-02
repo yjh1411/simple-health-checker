@@ -24,6 +24,7 @@ check_response() {
     if [[ -n $TIMEOUT && $(bc <<<"$time_taken >= $TIMEOUT") -eq 1 ]]; then
         message='🐌 Server responded successfully, but it was too slow.'
         color='16761095'
+        echo "time out"
     fi
 
     # Shift url
@@ -38,6 +39,7 @@ check_response() {
             if [ "$expected_status" != "$http_status" ]; then
                 message="🙅 Expected status is $expected_status, but actual status is $http_status"
                 color='16007990'
+                echo "status $http_statu"
                 break
             fi
 
@@ -49,6 +51,7 @@ check_response() {
             if [[ ! $response_body =~ $target_string ]]; then
                 message="😑 String \`$target_string\` not found in HTTP response"
                 color='16007990'
+                echo "not found in HTTP response"
                 break
             fi
 
@@ -60,6 +63,7 @@ check_response() {
             if [[ $response_body =~ $target_string ]]; then
                 message="👀 String \`$target_string\` found in HTTP response"
                 color='16007990'
+                echo "found in HTTP response"
                 break
             fi
 
